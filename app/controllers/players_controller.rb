@@ -35,7 +35,7 @@ class PlayersController < ApplicationController
 
 
   def update
-
+    redirect_to player_path
   end
 
 
