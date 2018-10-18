@@ -50,6 +50,6 @@ class PlayersController < ApplicationController
   end
 
   def find_player
-    @player = Player.find_by(id: params[:id])
+    @player = Player.find(params[:id])
   end
 end

@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :find_team, only: [:show, :edit, :update]
+  before_action :find_team, only: [:show, :edit, :update, :destroy]
   def index
     @teams = Team.all
   end
@@ -25,7 +25,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @teams = Team.all
+    @players = Player.all
   end
 
 
@@ -34,9 +34,9 @@ class TeamsController < ApplicationController
   end
 
 
-  # def destroy
-  #
-  # end
+  def destroy
+
+  end
 
 
   private
