@@ -5,10 +5,8 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
 
-
   def show
   end
-
 
   def new
     @player = Player.new
@@ -23,7 +21,7 @@ class PlayersController < ApplicationController
       @player.save
       redirect_to player_path(@player)
     else
-      # Flash render
+      flash[:errors] = @player.errors.full_messages
       redirect_to new_player_path
     end
   end
@@ -35,12 +33,19 @@ class PlayersController < ApplicationController
 
 
   def update
-    redirect_to player_path
+    @player.update(player_params)
+    if @player.valid?
+      redirect_to player_path(@player)
+    else
+      flash[:errors] = @player.errors.full_messages
+      redirect_to edit_player_path(@player)
+    end
   end
 
 
   def destroy
-
+    @player.destroy
+    redirect_to players_path
   end
 
   private

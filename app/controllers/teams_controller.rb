@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
-    @players = Player.all
+    #@players = Player.all
   end
 
   def create
@@ -19,23 +19,30 @@ class TeamsController < ApplicationController
       @team.save
       redirect_to team_path(@team)
     else
-      # Flash render
+      flash[:errors] = @team.errors.full_messages
       redirect_to new_team_path
     end
   end
 
   def edit
-    @players = Player.all
+    #@players = Player.all
   end
 
 
   def update
-    redirect_to team_path
+    @team.update(team_params)
+    if @team.valid?
+      redirect_to team_path(@team)
+    else
+      flash[:errors] = @team.errors.full_messages
+      redirect to edit_team_path(@team)
+    end
   end
 
 
   def destroy
-
+    @team.destroy
+    redirect_to teams_path
   end
 
 

@@ -1,2 +1,8 @@
 <h1>Edit this team</h1>
+
+  <% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+  <% end %>
 <%= render "form" %>

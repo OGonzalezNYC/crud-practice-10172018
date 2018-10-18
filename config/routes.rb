@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   #get '/players', to: 'players#index', as: 'lets_see_all_the_players'
   resources :players#, only: [:show, :new, :create, :edit, :update, :destroy]
 
-  resources :teams, except: :destroy
+  resources :teams#, #except: :destroy
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 #  get '/players', to: 'players#index'#, #as: 'lets_see_all_the_players'
+
+root to: 'application#welcome', as: 'home'
+
 end

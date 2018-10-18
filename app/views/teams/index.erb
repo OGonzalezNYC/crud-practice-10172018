@@ -1,10 +1,13 @@
 <h1>Teams</h1>
 <% @teams.each do |team| %>
-<%= link_to team.name, team_path(team) %> <%= team.city %><br>
+<%= link_to team.name, team_path(team) %> <%= team.city %><br><br>
 
 
 
 <% end %>
 <%= link_to "Create a team", new_team_path %>
-<br>
+<br><br>
 <%= link_to "See all players", players_path %>
+<br>
+<br>
+<%= link_to "Return home", home_path %>

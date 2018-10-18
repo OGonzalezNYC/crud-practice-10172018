@@ -1,13 +1,8 @@
 <h1> <%= @player.name %> </h1>
-
 <p> Team Name: <%= link_to @player.team.name, team_path(@player.team) %> </p>
-
 <p> City: <%= @player.team.city %> </p>
-
 <p> Jersey Number: <%= @player.jersey_number %> </p>
-
 <p> Foreigner? <%= @player.foreigner %> </p>
-
-<%= link_to "Edit this player", edit_player_path(@player) %>
-
+<%= link_to "Edit this player", edit_player_path(@player) %><br><br>
+<%= link_to "Delete this player", @player, method: :delete %><br><br>
 <%= link_to "Back to all players", players_path %>
